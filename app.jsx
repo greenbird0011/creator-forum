@@ -113,7 +113,7 @@ function App() {
         {showPlaygroundSidebar && (
           <PlaygroundSidebar route={route} go={go} filter={playgroundFilter} setFilter={setPlaygroundFilter} />
         )}
-        <div className="content" key={route || 'home'}>{page}</div>
+        <div className="content page-fade-in" key={route || 'home'}>{page}</div>
       </div>
 
       <AIAssistant />

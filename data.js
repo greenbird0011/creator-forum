@@ -452,5 +452,99 @@
     }
   ];
 
-  window.CF = { PACKAGES, CATEGORIES, LICENSES, SNIPPETS, COMMUNITY, COMMUNITY_CATEGORIES, NOTIFICATIONS };
+  // 유저 라운지 데이터 (플레이어 중심)
+  const PLAYGROUND = [
+    {
+      author: "메이플마니아", color: "#ff6b9d", verified: false, time: "5분 전", type: "일반", pill: "general", category: "자유게시판",
+      title: "다들 몇시간째 플레이 중이신가요? ㅋㅋ",
+      body: "저는 벌써 50시간 넘게 했는데 아직도 할 게 너무 많아요 ㅎㅎ 다들 몇시간이나 하셨어요?",
+      likes: 28, comments: 15, reposts: 2, views: 234, liked: false,
+      lastReplier: "겜돌이", lastReplyColor: "#3aa3ff",
+      thumbnail: null,
+      upvotes: 89, downvotes: 5
+    },
+    {
+      author: "월드탐험가", color: "#3aa3ff", verified: true, time: "23분 전", type: "추천", pill: "recommend", category: "월드 추천",
+      title: "이번주 꼭 해봐야 할 월드 TOP 3",
+      body: "1. 좀비 서바이벌 - 친구들이랑 하면 꿀잼\n2. 파쿠르 챌린지 - 난이도 미쳤음 ㅋㅋ\n3. RPG 던전 - 스토리 개꿀",
+      likes: 156, comments: 42, reposts: 28, views: 1842, liked: true,
+      lastReplier: "겜마스터", lastReplyColor: "#ff7a59",
+      thumbnail: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=500&fit=crop&q=80",
+      upvotes: 342, downvotes: 23
+    },
+    {
+      author: "스샷러버", color: "#ff7a59", verified: false, time: "1시간 전", type: "일반", pill: "general", category: "스크린샷/영상",
+      title: "오늘 찍은 스샷 중 제일 잘나온거.jpg",
+      body: "석양 질 때 캐릭터 뒤에서 찍었는데 분위기 개좋다... 다들 보세요",
+      likes: 234, comments: 38, reposts: 15, views: 2156, liked: false,
+      lastReplier: "포토그래퍼", lastReplyColor: "#8b5cf6",
+      thumbnail: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=500&fit=crop&q=80",
+      upvotes: 445, downvotes: 12
+    },
+    {
+      author: "팁좀줘", color: "#fbbf24", verified: false, time: "2시간 전", type: "질문", pill: "question", category: "질문/답변",
+      title: "초보인데 레벨업 빨리하는 법 좀 알려주세요 ㅠㅠ",
+      body: "레벨 10에서 막혔어요... 다들 어떻게 하면 빨리 레벨 올리나요? 팁 좀 부탁드려요!",
+      likes: 45, comments: 28, reposts: 3, views: 567, liked: false,
+      lastReplier: "프로게이머", lastReplyColor: "#3aa3ff",
+      thumbnail: null,
+      upvotes: 67, downvotes: 8
+    },
+    {
+      author: "짤방왕", color: "#8b5cf6", verified: false, time: "3시간 전", type: "유머", pill: "humor", category: "유머/밈",
+      title: "ㅋㅋㅋ 이거 진짜 공감 ㅋㅋㅋ",
+      body: "월드 만들다가 버그 터지는 순간.gif\n다들 공감하시죠? ㅋㅋㅋㅋ",
+      likes: 389, comments: 67, reposts: 52, views: 3245, liked: true,
+      lastReplier: "밈러버", lastReplyColor: "#ec4899",
+      thumbnail: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=500&fit=crop&q=80",
+      upvotes: 892, downvotes: 34
+    },
+    {
+      author: "공략마스터", color: "#10b981", verified: true, time: "4시간 전", type: "일반", pill: "general", category: "팁&트릭",
+      title: "[팁] 모르면 손해보는 숨겨진 기능 10가지",
+      body: "1. 더블점프는 스페이스 두번\n2. 숨겨진 상점은 맵 구석에\n3. 보스 패턴 외우는 법\n...(계속)",
+      likes: 567, comments: 94, reposts: 123, views: 4567, liked: false,
+      lastReplier: "팁받아요", lastReplyColor: "#fbbf24",
+      thumbnail: null,
+      upvotes: 1234, downvotes: 56
+    },
+    {
+      author: "리뷰어", color: "#ec4899", verified: false, time: "5시간 전", type: "추천", pill: "recommend", category: "플레이 후기",
+      title: "방금 '던전의 제왕' 월드 클리어했는데요",
+      body: "진짜 개꿀잼이에요 ㅋㅋ 난이도는 좀 있지만 스토리가 탄탄해서 끝까지 재밌게 했습니다. 추천!",
+      likes: 178, comments: 45, reposts: 19, views: 1456, liked: false,
+      lastReplier: "게임리뷰", lastReplyColor: "#3aa3ff",
+      thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&h=500&fit=crop&q=80",
+      upvotes: 298, downvotes: 15
+    },
+    {
+      author: "이벤트알리미", color: "#3aa3ff", verified: true, time: "6시간 전", type: "일반", pill: "general", category: "이벤트",
+      title: "[이벤트] 주말 보스 레이드 2배 경험치!",
+      body: "이번 주말 동안 보스 레이드 경험치 2배 이벤트 진행합니다! 놓치지 마세요!",
+      likes: 234, comments: 52, reposts: 78, views: 2345, liked: true,
+      lastReplier: "이벤트왕", lastReplyColor: "#ff7a59",
+      thumbnail: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=500&fit=crop&q=80",
+      upvotes: 456, downvotes: 12
+    },
+    {
+      author: "길드마스터", color: "#ff7a59", verified: false, time: "8시간 전", type: "일반", pill: "general", category: "친구찾기",
+      title: "같이 레이드 갈 파티원 구합니다!",
+      body: "레벨 50+ 파티원 2명 구해요! 주로 저녁 9시~12시 사이 활동합니다. 디스코드 있으신 분!",
+      likes: 67, comments: 34, reposts: 8, views: 456, liked: false,
+      lastReplier: "파티원", lastReplyColor: "#8b5cf6",
+      thumbnail: null,
+      upvotes: 89, downvotes: 4
+    },
+    {
+      author: "베테랑유저", color: "#8b5cf6", verified: true, time: "10시간 전", type: "일반", pill: "general", category: "팁&트릭",
+      title: "PvP 꿀팁 공유합니다",
+      body: "PvP에서 이기는 법:\n1. 포지션 선점\n2. 스킬 쿨타임 관리\n3. 상대 패턴 읽기\n4. 템 세팅 최적화",
+      likes: 345, comments: 78, reposts: 45, views: 2890, liked: false,
+      lastReplier: "PvP고수", lastReplyColor: "#10b981",
+      thumbnail: null,
+      upvotes: 678, downvotes: 23
+    }
+  ];
+
+  window.CF = { PACKAGES, CATEGORIES, LICENSES, SNIPPETS, COMMUNITY, PLAYGROUND, COMMUNITY_CATEGORIES, NOTIFICATIONS };
 })();

@@ -250,6 +250,22 @@ a { color: inherit; text-decoration: none; }
 .main { padding: 34px 38px 100px; min-width: 0; }
 .content { min-width: 0; }
 
+/* 페이지 전환 애니메이션 */
+.page-fade-in {
+  animation: pageFadeIn 0.3s ease-out;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .app-sidebar { display: none; }
@@ -3824,6 +3840,34 @@ a { color: inherit; text-decoration: none; }
   justify-content: flex-end;
   gap: 10px;
   margin-top: 16px;
+}
+
+.playground-empty {
+  text-align: center;
+  padding: 80px 20px;
+  background: var(--surface);
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  margin: 20px 0;
+}
+.playground-empty svg {
+  width: 64px;
+  height: 64px;
+  color: var(--text-3);
+  opacity: 0.3;
+  margin-bottom: 16px;
+}
+.empty-text {
+  font-family: "NEXON Lv2 Gothic", "Noto Sans KR", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.empty-sub {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  color: var(--text-3);
 }
 
 /* ============================================================

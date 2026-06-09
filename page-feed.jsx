@@ -539,12 +539,13 @@ function Playground({ query, go }) {
     setImages([]);
   };
 
-  let list = CF.COMMUNITY.filter(p =>
+  let list = CF.PLAYGROUND.filter(p =>
     !query.trim() || p.title.includes(query) || p.body.includes(query) || p.author.includes(query));
   list = list.slice();
 
   if (sort === "hot") list.sort((a, b) => (b.upvotes - b.downvotes + b.comments * 2) - (a.upvotes - a.downvotes + a.comments * 2));
   else if (sort === "top") list.sort((a, b) => (b.upvotes - b.downvotes) - (a.upvotes - a.downvotes));
+  else if (sort === "new") list.sort((a, b) => a.id - b.id); // newest first
 
   return (
     <div className="playground-layout">
@@ -665,7 +666,15 @@ function Playground({ query, go }) {
         </div>
 
         <div className="reddit-posts">
-          {list.map((p, i) => <RedditPost key={i} p={p} i={i} go={go} />)}
+          {list.length === 0 ? (
+            <div className="playground-empty">
+              <Icon name="spark" />
+              <div className="empty-text">게시글이 없습니다</div>
+              <div className="empty-sub">검색어나 필터를 변경해보세요</div>
+            </div>
+          ) : (
+            list.map((p, i) => <RedditPost key={i} p={p} i={i} go={go} />)
+          )}
         </div>
       </main>
 
