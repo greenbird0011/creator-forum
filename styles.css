@@ -4282,7 +4282,10 @@ a { color: inherit; text-decoration: none; }
 
   /* Community Hero */
   .community-hero {
-    padding: 24px 0 16px;
+    padding: 20px 16px 16px;
+    margin: 0 -16px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--divider);
   }
 
   .community-hero h1 {
@@ -4290,6 +4293,15 @@ a { color: inherit; text-decoration: none; }
   }
 
   .community-hero p {
+    font-size: 13px;
+  }
+
+  /* Topics Container */
+  .topics-container {
+    margin-top: 0;
+  }
+
+  .unity-count {
     font-size: 13px;
   }
 
@@ -4303,13 +4315,37 @@ a { color: inherit; text-decoration: none; }
   }
 
   .forum-post {
-    padding: 16px;
+    padding: 14px;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   .forum-post-main {
     grid-column: 1;
+  }
+
+  .forum-post-title {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .forum-post-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .forum-post-author {
+    font-size: 12px;
+  }
+
+  .forum-post-category {
+    font-size: 11px;
+  }
+
+  .forum-post-stats {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
   }
 
   .forum-participants {
@@ -4318,32 +4354,84 @@ a { color: inherit; text-decoration: none; }
 
   .forum-stat {
     font-size: 12px;
+    gap: 4px;
+  }
+
+  .forum-stat svg {
+    width: 14px;
+    height: 14px;
   }
 
   /* Reddit Posts */
   .reddit-post {
     padding: 12px;
-    grid-template-columns: 40px 1fr;
+    grid-template-columns: 48px 1fr;
+    gap: 10px;
   }
 
   .post-vote {
-    width: 40px;
+    width: 48px;
+    gap: 4px;
+  }
+
+  .vote-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+  }
+
+  .vote-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .vote-count {
+    font-size: 12px;
+    font-weight: 700;
   }
 
   .post-content {
     padding: 0;
+    min-width: 0;
   }
 
   .post-title {
     font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 8px;
   }
 
   .post-meta {
     font-size: 11px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .post-body {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 8px 0;
   }
 
   .post-thumbnail {
-    height: 180px;
+    height: 200px;
+    border-radius: 8px;
+    margin: 8px 0;
+  }
+
+  .post-footer {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .post-action {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .post-action svg {
+    width: 14px;
+    height: 14px;
   }
 
   /* Playground */
@@ -4351,16 +4439,42 @@ a { color: inherit; text-decoration: none; }
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+    padding: 16px;
+    margin: 0 -16px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--divider);
   }
 
   .playground-title {
     font-size: 24px;
   }
 
+  .playground-sub {
+    font-size: 13px;
+  }
+
   .playground-sorts {
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 16px;
+    margin: 0 -16px;
+  }
+
+  .playground-sorts::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sort-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+    white-space: nowrap;
+  }
+
+  .sort-btn svg {
+    width: 14px;
+    height: 14px;
   }
 
   /* 글쓰기 폼 */
@@ -4553,27 +4667,72 @@ a { color: inherit; text-decoration: none; }
 
   .forum-post-title {
     font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .forum-post-meta {
+    font-size: 11px;
+  }
+
+  .forum-post-stats {
+    gap: 10px;
+  }
+
+  .forum-stat {
+    font-size: 11px;
   }
 
   .reddit-post {
     padding: 10px;
-    grid-template-columns: 36px 1fr;
+    grid-template-columns: 44px 1fr;
+    gap: 8px;
   }
 
   .post-vote {
-    width: 36px;
+    width: 44px;
+    gap: 2px;
   }
 
   .vote-btn {
-    padding: 4px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
+
+  .vote-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .vote-count {
+    font-size: 11px;
   }
 
   .post-title {
     font-size: 14px;
+    line-height: 1.3;
   }
 
   .post-meta {
     font-size: 10px;
+  }
+
+  .post-body {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .post-thumbnail {
+    height: 160px;
+  }
+
+  .post-footer {
+    gap: 6px;
+  }
+
+  .post-action {
+    font-size: 11px;
+    padding: 4px 6px;
   }
 
   /* Playground */
