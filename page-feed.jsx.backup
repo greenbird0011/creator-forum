@@ -1,0 +1,129 @@
+/* CreatorForum — Snippets tab + Community tab. */
+
+/* tiny lua-ish highlighter */
+function hlLua(code) {
+  const esc = code.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return esc
+    .replace(/(--[^\n]*)/g, '<span class="tok-com">$1</span>')
+    .replace(/("[^"]*")/g, '<span class="tok-str">$1</span>')
+    .replace(/\b(local|function|end|for|if|then|else|return|do|while|not|and|or|nil|true|false)\b/g, '<span class="tok-key">$1</span>')
+    .replace(/\b(\d+(?:\.\d+)?)\b/g, '<span class="tok-num">$1</span>');
+}
+
+function SnippetCard({ s, i }) {
+  const [likes, setLikes] = React.useState(s.likes);
+  const [liked, setLiked] = React.useState(false);
+  return (
+    <article className="snip-card rise" style={{ animationDelay: (0.02 + i * 0.02) + "s" }}>
+      <div className="snip-head">
+        <span className="dotrow"><i /><i /><i /></span>
+        <span className="fname">{s.fname}</span>
+        <span className="lang">{s.lang}</span>
+      </div>
+      <pre className="snip-code"><code dangerouslySetInnerHTML={{ __html: hlLua(s.code) }} /></pre>
+      <div className="snip-foot">
+        <div>
+          <div className="title">{s.title}</div>
+          <div className="by">by {s.author}</div>
+        </div>
+        <div className="likes" style={{ cursor: "pointer", color: liked ? "var(--magenta)" : undefined }}
+             onClick={() => { setLiked(!liked); setLikes(l => liked ? l - 1 : l + 1); }}>
+          <Icon name="heart" style={liked ? { fill: "var(--magenta)" } : undefined} /> {liked ? likes : s.likes}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function Snippets({ query }) {
+  const list = CF.SNIPPETS.filter(s =>
+    !query.trim() || s.title.includes(query) || s.author.includes(query) ||
+    s.code.toLowerCase().includes(query.toLowerCase()) || s.fname.includes(query.toLowerCase()));
+  return (
+    <main className="main" style={{ maxWidth: 1100, margin: "0 auto", width: "100%" }}>
+        <div className="page-head route-block" style={{ background: "var(--block-cream)" }}>
+          <div>
+            <span className="eyebrow">코드 조각 모음</span>
+            <h1 className="page-title">스니펫<span className="count">{list.length}개</span></h1>
+            <p className="page-sub">바로 복사해 쓰는 짧은 코드 조각 모음</p>
+          </div>
+          <div className="head-spacer" />
+          <button className="btn-cta"><Icon name="plus" /> 스니펫 공유</button>
+        </div>
+        {list.length === 0 ? (
+          <div className="empty"><Icon name="code" /><div className="t">결과가 없어요</div></div>
+        ) : (
+          <div className="snip-grid" key={query}>
+            {list.map((s, i) => <SnippetCard key={s.title} s={s} i={i} />)}
+          </div>
+        )}
+    </main>
+  );
+}
+
+/* ---------------- Community ---------------- */
+function Post({ p, i }) {
+  const [liked, setLiked] = React.useState(p.liked);
+  const [likes, setLikes] = React.useState(p.likes);
+  return (
+    <article className="post rise" style={{ animationDelay: (0.02 + i * 0.025) + "s" }}>
+      <div className="post-head">
+        <Mono name={p.author} color={p.color} size={38} />
+        <div className="post-who">
+          <div className="nm" style={{ display: "flex", alignItems: "center", gap: 5 }}>
+            {p.author} {p.verified && <Icon name="verified" className="verified" />}
+          </div>
+          <div className="meta">{p.time}</div>
+        </div>
+        <span className={"post-pill " + p.pill}>{p.type}</span>
+      </div>
+      <div className="post-body">
+        <span className="ttl">{p.title}</span>
+        {p.body}
+      </div>
+      <div className="post-actions">
+        <span className={"a" + (liked ? " liked" : "")} onClick={() => { setLiked(!liked); setLikes(l => liked ? l - 1 : l + 1); }}>
+          <Icon name="heart" style={liked ? { fill: "var(--accent)" } : undefined} /> {likes}
+        </span>
+        <span className="a"><Icon name="reply" /> {p.comments}</span>
+        <span className="a"><Icon name="repost" /> {p.reposts}</span>
+      </div>
+    </article>
+  );
+}
+
+function Community({ query }) {
+  const [sort, setSort] = React.useState("latest");
+  let list = CF.COMMUNITY.filter(p =>
+    !query.trim() || p.title.includes(query) || p.body.includes(query) || p.author.includes(query));
+  list = list.slice();
+  if (sort === "popular") list.sort((a, b) => b.likes - a.likes);
+  return (
+    <main className="main" style={{ display: "flex", justifyContent: "center" }}>
+        <div className="feed" style={{ width: "100%" }}>
+          <div className="page-head route-block" style={{ background: "var(--block-mint)", marginBottom: 20 }}>
+            <div>
+              <span className="eyebrow">크리에이터 라운지</span>
+              <h1 className="page-title">커뮤니티</h1>
+              <p className="page-sub">질문하고, 공유하고, 함께 만들어요</p>
+            </div>
+            <div className="head-spacer" />
+            <div className="segmented">
+              <button className={"seg" + (sort === "latest" ? " active" : "")} onClick={() => setSort("latest")}>최신순</button>
+              <button className={"seg" + (sort === "popular" ? " active" : "")} onClick={() => setSort("popular")}>인기순</button>
+            </div>
+          </div>
+          <div className="compose">
+            <Mono name="민" color="var(--text)" size={40} />
+            <textarea placeholder="크리에이터들과 나누고 싶은 이야기를 적어보세요…" />
+            <button className="btn-cta" style={{ alignSelf: "flex-end" }}>게시</button>
+          </div>
+          {list.length === 0 ? (
+            <div className="empty"><Icon name="community" /><div className="t">결과가 없어요</div></div>
+          ) : list.map((p, i) => <Post key={p.title} p={p} i={i} />)}
+        </div>
+    </main>
+  );
+}
+
+Object.assign(window, { Snippets, Community });
