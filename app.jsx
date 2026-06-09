@@ -81,6 +81,7 @@ function App() {
   else if (route.startsWith("p/")) page = <PackageDetail name={route.slice(2)} go={go} setQuery={setQuery} />;
   else if (route === "create-topic") page = <CommunityCreate go={go} />;
   else if (route === "create-playground") page = <PlaygroundCreate go={go} />;
+  else if (route === "mypage") page = <MyPage go={go} />;
   else if (route === "packages") page = <PackageList go={go} query={query} setQuery={setQuery}
       cat={pkgCat} setCat={setPkgCat} lic={pkgLic} setLic={setPkgLic} toggleLic={toggleLic}
       sort={pkgSort} setSort={setPkgSort} />;
@@ -93,7 +94,7 @@ function App() {
   else page = <Community query={query} go={go} setQuery={setQuery} showCategoryGrid={false} filter={communityFilter} />;
 
   // 사이드바 표시 조건
-  const showPackageSidebar = route !== "snippets" && route !== "" && route !== "playground" && route !== "categories" && route !== "create-topic" && route !== "create-playground" && !route.startsWith("t/");
+  const showPackageSidebar = route !== "snippets" && route !== "" && route !== "playground" && route !== "categories" && route !== "create-topic" && route !== "create-playground" && route !== "mypage" && !route.startsWith("t/");
   const showCommunitySidebar = route === "" || route === "categories";
   const showPlaygroundSidebar = route === "playground";
 

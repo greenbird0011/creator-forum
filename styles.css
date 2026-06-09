@@ -3825,3 +3825,327 @@ a { color: inherit; text-decoration: none; }
   gap: 10px;
   margin-top: 16px;
 }
+
+/* ============================================================
+   마이페이지
+   ============================================================ */
+.mypage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mypage-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+/* Profile Sidebar */
+.mypage-sidebar {
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+}
+
+.mypage-profile-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.mypage-profile-info {
+  margin-top: 16px;
+}
+
+.mypage-profile-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: "NEXON Lv2 Gothic", "Noto Sans KR", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.mypage-profile-name .verified {
+  width: 18px;
+  height: 18px;
+  color: #3aa3ff;
+}
+
+.mypage-profile-email {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 12px;
+}
+
+.mypage-profile-bio {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.mypage-profile-join {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.mypage-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+}
+
+.mypage-stat-item {
+  text-align: center;
+}
+
+.mypage-stat-item .stat-num {
+  font-family: "NEXON Lv2 Gothic", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.mypage-stat-item .stat-label {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 4px;
+}
+
+.mypage-edit-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  border-radius: 10px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.mypage-edit-btn:hover {
+  filter: brightness(0.85);
+}
+.mypage-edit-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Content Area */
+.mypage-content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.mypage-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--divider);
+  background: var(--bg);
+}
+
+.mypage-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.mypage-tab:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+.mypage-tab.active {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+.mypage-tab svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mypage-posts,
+.mypage-comments {
+  padding: 20px;
+}
+
+.mypage-post-card {
+  background: var(--bg);
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.mypage-post-card:hover {
+  border-color: var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+
+.mypage-post-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.mypage-post-badge {
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 11px;
+}
+.mypage-post-badge.notice {
+  background: #c5b0f4;
+  color: #1a1530;
+}
+.mypage-post-badge.tip {
+  background: #dceeb1;
+  color: #16200a;
+}
+
+.mypage-post-category {
+  color: var(--text-2);
+}
+
+.mypage-post-date {
+  margin-left: auto;
+  color: var(--text-3);
+}
+
+.mypage-post-title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 10px 0;
+}
+
+.mypage-post-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+.mypage-post-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.mypage-post-stats svg {
+  width: 14px;
+  height: 14px;
+}
+
+.mypage-comment-card {
+  background: var(--bg);
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.mypage-comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.mypage-comment-post {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.mypage-comment-date {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.mypage-comment-content {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 10px 0;
+}
+
+.mypage-comment-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+.mypage-comment-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.mypage-comment-stats svg {
+  width: 14px;
+  height: 14px;
+}
+
+.mypage-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-3);
+}
+.mypage-empty svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+.mypage-empty p {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+
+@media (max-width: 920px) {
+  .mypage-layout {
+    grid-template-columns: 1fr;
+  }
+  .mypage-sidebar {
+    position: static;
+  }
+}

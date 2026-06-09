@@ -121,7 +121,7 @@ function Nav({ route, go, theme, toggleTheme, query, setQuery }) {
           <Icon name={theme === "light" ? "moon" : "sun"} />
         </button>
         <NotificationBell />
-        <div className="avatar" title="내 프로필">민</div>
+        <div className="avatar" title="마이페이지" onClick={() => go("mypage")}>민</div>
       </div>
     </nav>
   );
