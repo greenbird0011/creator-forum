@@ -4193,3 +4193,445 @@ a { color: inherit; text-decoration: none; }
     position: static;
   }
 }
+
+/* ============================================================
+   모바일 최적화 (768px 이하)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Nav 최적화 */
+  .nav-container {
+    padding: 0 16px;
+    gap: 8px;
+  }
+
+  .brand {
+    font-size: 14px;
+  }
+
+  .logo-mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-text .ms {
+    font-size: 9px;
+  }
+
+  .brand-text div {
+    font-size: 13px;
+  }
+
+  .nav-tabs {
+    gap: 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-tab {
+    font-size: 13px;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+
+  .nav-tab svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .search {
+    display: none; /* 모바일에서는 검색 숨김 */
+  }
+
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  /* Layout 최적화 */
+  .layout {
+    gap: 0;
+  }
+
+  .main {
+    padding: 20px 16px 80px;
+  }
+
+  /* 카테고리 그리드 */
+  .categories-container {
+    padding: 8px 16px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .category-card {
+    padding: 16px;
+  }
+
+  /* Community Hero */
+  .community-hero {
+    padding: 24px 0 16px;
+  }
+
+  .community-hero h1 {
+    font-size: 24px;
+  }
+
+  .community-hero p {
+    font-size: 13px;
+  }
+
+  /* Forum Posts */
+  .unity-topics-header {
+    padding: 12px 16px;
+  }
+
+  .unity-header-right {
+    display: none; /* 모바일에서 헤더 컬럼 숨김 */
+  }
+
+  .forum-post {
+    padding: 16px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .forum-post-main {
+    grid-column: 1;
+  }
+
+  .forum-participants {
+    display: none; /* 모바일에서 참여자 아바타 숨김 */
+  }
+
+  .forum-stat {
+    font-size: 12px;
+  }
+
+  /* Reddit Posts */
+  .reddit-post {
+    padding: 12px;
+    grid-template-columns: 40px 1fr;
+  }
+
+  .post-vote {
+    width: 40px;
+  }
+
+  .post-content {
+    padding: 0;
+  }
+
+  .post-title {
+    font-size: 15px;
+  }
+
+  .post-meta {
+    font-size: 11px;
+  }
+
+  .post-thumbnail {
+    height: 180px;
+  }
+
+  /* Playground */
+  .playground-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .playground-title {
+    font-size: 24px;
+  }
+
+  .playground-sorts {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 글쓰기 폼 */
+  .create-form {
+    max-width: 100%;
+  }
+
+  .create-section {
+    margin-bottom: 20px;
+  }
+
+  .create-select-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .create-option-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .create-type-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .create-input {
+    font-size: 14px;
+  }
+
+  .create-textarea {
+    font-size: 13px;
+    padding: 12px;
+  }
+
+  .create-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .create-actions button {
+    width: 100%;
+  }
+
+  /* Playground 글쓰기 폼 */
+  .playground-create-form {
+    padding: 16px;
+  }
+
+  .playground-category-select,
+  .playground-title-input,
+  .playground-content-textarea {
+    font-size: 14px;
+  }
+
+  .playground-create-actions {
+    flex-direction: column-reverse;
+  }
+
+  .playground-create-actions button {
+    width: 100%;
+  }
+
+  /* 토픽 상세 */
+  .unity-detail {
+    padding: 16px;
+  }
+
+  .unity-detail-title {
+    font-size: 24px;
+  }
+
+  .unity-stats-bar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .unity-stats-left {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .unity-post-card {
+    padding: 16px;
+  }
+
+  .unity-post-footer {
+    flex-wrap: wrap;
+  }
+
+  /* 마이페이지 */
+  .mypage-container {
+    padding: 16px;
+  }
+
+  .mypage-profile-card {
+    padding: 20px;
+  }
+
+  .mypage-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 16px 0;
+    padding: 16px 0;
+  }
+
+  .mypage-tabs {
+    flex-direction: column;
+  }
+
+  .mypage-tab {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 16px;
+  }
+
+  .mypage-posts,
+  .mypage-comments {
+    padding: 16px;
+  }
+
+  /* 사이드바 숨김 (이미 920px에서 처리되지만 명시) */
+  .app-sidebar {
+    display: none;
+  }
+
+  .reddit-sidebar,
+  .playground-sidebar {
+    display: none;
+  }
+}
+
+/* ============================================================
+   모바일 세로 최적화 (480px 이하)
+   ============================================================ */
+@media (max-width: 480px) {
+  /* Nav 더 간소화 */
+  .nav-container {
+    padding: 0 12px;
+    gap: 6px;
+  }
+
+  .brand-text {
+    display: none; /* 작은 화면에서는 로고만 */
+  }
+
+  .nav-tab span {
+    display: none; /* 아이콘만 표시 */
+  }
+
+  .nav-tab {
+    padding: 8px;
+  }
+
+  .nav-spacer {
+    display: none;
+  }
+
+  /* Layout */
+  .main {
+    padding: 16px 12px 60px;
+  }
+
+  /* 카테고리 */
+  .category-card {
+    padding: 12px;
+  }
+
+  .category-card-title {
+    font-size: 14px;
+  }
+
+  .category-card-desc {
+    font-size: 12px;
+  }
+
+  /* Community */
+  .community-hero h1 {
+    font-size: 20px;
+  }
+
+  .community-hero p {
+    font-size: 12px;
+  }
+
+  /* Posts */
+  .forum-post {
+    padding: 12px;
+  }
+
+  .forum-post-title {
+    font-size: 14px;
+  }
+
+  .reddit-post {
+    padding: 10px;
+    grid-template-columns: 36px 1fr;
+  }
+
+  .post-vote {
+    width: 36px;
+  }
+
+  .vote-btn {
+    padding: 4px;
+  }
+
+  .post-title {
+    font-size: 14px;
+  }
+
+  .post-meta {
+    font-size: 10px;
+  }
+
+  /* Playground */
+  .playground-title {
+    font-size: 20px;
+  }
+
+  .playground-sub {
+    font-size: 12px;
+  }
+
+  .sort-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  /* 글쓰기 */
+  .create-select-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .create-title {
+    font-size: 24px;
+  }
+
+  .create-subtitle {
+    font-size: 13px;
+  }
+
+  /* 토픽 상세 */
+  .unity-detail-title {
+    font-size: 20px;
+  }
+
+  .unity-breadcrumb {
+    font-size: 11px;
+  }
+
+  .detail-back-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* 버튼 크기 (터치 친화적) */
+  button,
+  .btn-cta,
+  .btn-ghost {
+    min-height: 44px; /* iOS 권장 터치 영역 */
+  }
+
+  .icon-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* 이미지 그리드 */
+  .create-image-grid,
+  .playground-image-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
